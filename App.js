@@ -1,20 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+import ShopNavigator from './src/navigation/ShopNavigator';
+import {useFonts} from 'expo-font'
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function App() {
+
+  const [FontsLoaded] = useFonts (
+    {
+      Pacifico : require ('./src/assets/fonts/PacificoRegular.ttf'),
+      Faustina: require ('./src/assets/fonts/FaustinaVariableFont_wght.ttf'),
+      Poppins: require ('./src/assets/fonts/PoppinsMedium.ttf')
+    })
+
+    if (!FontsLoaded){ return null}
+    
+  return (
+      <ShopNavigator/>
+      )
+}
