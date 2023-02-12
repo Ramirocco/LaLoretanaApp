@@ -1,13 +1,11 @@
 import { Button, StyleSheet, Text, View } from 'react-native'
 
+import DetailsItem from '../components/DetailsItem'
 import React from 'react'
 
-const DetailsScreen = ({navigation}) => {
+const DetailsScreen = ({navigation, route, item}) => {
   return (
-    <View style={styles.container}>
-      <Text>DetailsScreen</Text>
-      <Button title='Volver a categorias' onPress={()=> {navigation.popToTop()} } />
-    </View>
+    <DetailsItem item={item} />
   )
 }
 
